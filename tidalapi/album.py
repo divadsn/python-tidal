@@ -98,6 +98,14 @@ class Album(object):
 
         return copy.copy(self)
 
+    @property
+    def year(self):
+        if self.release_date:
+            return self.release_date.year
+        if self.tidal_release_date:
+            return self.tidal_release_date.year
+        return None
+
     def tracks(self, limit=None, offset=0):
         """
         Returns the tracks in classes album.
